@@ -1,14 +1,33 @@
-<<<<<<< HEAD
 # Ambiente virtual
 venv/
 env/
 
-# Python cache
+# Byte-compiled / cache
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
 
-# Build executável
+# Arquivos de build do PyInstaller
 build/
 dist/
 *.spec
+*.exe
+
+# Arquivos temporários / logs
+*.log
+*.tmp
+
+# Planilhas, se quiser ignorar versões temporárias
+~$*.xlsx
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# IDEs / editores
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
