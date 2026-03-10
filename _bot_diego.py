@@ -54,19 +54,15 @@ if 'VAL_UNIT' in df.columns:
         valor_str = str(valor).strip().replace(" ", "")
         
         try:
-            # Caso venha no formato americano com ponto decimal (ex: 13216.58, 719.4)
             if "." in valor_str:
                 numero_float = float(valor_str)
             else:
-                # Caso seja inteiro grande (ex: 5214227 → 52.142,27)
                 numero = int(valor_str)
                 numero_float = numero / 100
 
-            # Formata no padrão brasileiro
             return f"{numero_float:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
         
         except Exception:
-            # Se der erro, retorna valor original
             return valor_str
 
     df['VAL_UNIT'] = df['VAL_UNIT'].apply(formatar_val_unit)
@@ -81,12 +77,14 @@ if 'COD_CLIEFOR' in df.columns:
 if 'COD_PRODUTO' in df.columns:
     df['COD_PRODUTO'] = df['COD_PRODUTO'].str.zfill(15)
 
+if 'TES' in df.columns:
+    df['TES'] = df['TES'].astype(str).str.zfill(3)
 
 # ===== Pega a primeira linha (teste) =====
 if len(df) == 0:
     print("Erro: A planilha está vazia.")
     exit(1)
-
+    
 # ===== Ordem dos campos =====
 CAMPOS_ORDEM = [
     "NOTA_FISCAL", "SERIE", "DT_EMISSAO", "COD_CLIEFOR",

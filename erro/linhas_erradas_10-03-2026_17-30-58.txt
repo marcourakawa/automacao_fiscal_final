@@ -1,0 +1,21 @@
+================================================================================
+Data/Hora : 10/03/2026 17:31:21
+!!!! LINHA !!!! = 1
+Motivo    : FILIAL fora do padrão: 'ofnonfsf'
+Dados da linha:
+  CNPJ_FILIAL: ofnonfsf
+  NOTA_FISCAL: 281712026
+  SERIE: 2
+  DT_EMISSAO: 03/03/2026
+  COD_CLIEFOR: 00197155
+  NOME_CLIEFOR: IDEALLE EMPREENDIMENTOS IMOBILIARIOS LTD
+  ESPECIE: NFS
+  COD_PRODUTO: 080090210000007
+  DESC_PRODUTO: AGUA (CONSUMO)
+  QTDE: 1
+  VAL_UNIT: 77,46
+  TES: 200
+  SOLIC_PAGTO: 9GJYSH
+  NATUREZA: 508
+  CHAVE_NFE: nan
+
