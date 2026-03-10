@@ -1,2 +1,20 @@
-./venv
-./env
+# Ambiente virtual
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Build executável
+build/
+dist/
+*.spec
+
+# Logs
+*.log
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
