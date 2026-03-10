@@ -1,0 +1,54 @@
+AUTOMAÇÃO - GUIA DE USO
+==============================
+
+Este guia explica como usar o bot de automação fiscal passo a passo.
+
+1. Estrutura de Pastas
+----------------------
+- Coloque o arquivo do bot (_bot_diego.exe) em uma pasta.
+- Dentro da mesma pasta, crie uma pasta chamada "planilha".
+- Coloque a planilha Excel que deseja processar dentro da pasta "planilha".
+  Exemplo:
+    C:\AutomacaoFiscal\
+        |_ _bot_diego_portavel.exe
+        |_ planilha\
+            |_ planilha_uso_e_consumo.xlsx
+
+- O bot criará automaticamente uma pasta "erro" para registrar logs, se houver problemas.
+
+2. Como Rodar
+-------------
+- Clique duas vezes no arquivo `_bot_diego_portavel.exe`.
+- Uma janela vai abrir pedindo para você selecionar a planilha:
+    * Vá até a pasta "planilha" e selecione o arquivo Excel.
+    * Clique em "Abrir".
+- O console (janela preta) vai abrir mostrando passo a passo:
+    * Qual linha do Excel está sendo processada.
+    * Se houver algum erro, ele será registrado na pasta "erro".
+
+3. Durante a Execução
+---------------------
+- **Não mexa no mouse ou teclado** enquanto o bot estiver rodando, para evitar falhas.
+- O bot vai preencher os dados automaticamente no sistema Protheus.
+- Mensagens como "CHAVE_NFE vazia" ou "FILIAL fora do padrão" aparecerão no console e no log.
+
+4. Logs de Erro
+---------------
+- Todos os erros são salvos na pasta "erro".
+- Cada log tem o formato:
+    linhas_erradas_DD-MM-AAAA_HH-MM-SS.txt
+- Você pode abrir esses arquivos para ver quais linhas deram problema.
+
+5. Observações Importantes
+--------------------------
+- Mantenha a planilha no mesmo computador onde o bot está.
+- Você pode mover o .exe, mas sempre use a pasta "planilha" ou selecione manualmente o arquivo.
+- Para executar novamente, basta clicar no .exe e selecionar a planilha.
+
+6. Suporte Básico
+-----------------
+- Se o bot não abrir a planilha, verifique se ela está no formato .xlsx ou .xls.
+- Se houver problemas com logs, verifique se a pasta "erro" existe ou se tem permissão para criar arquivos.
+
+------------------------------
+BOT - MARCO URAKAWA

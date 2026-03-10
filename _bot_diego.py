@@ -316,7 +316,7 @@ def preencher_campos(linha, index):
             print("→ Abrindo aba DUPLICATAS para preencher NATUREZA")
 
             # Clica na aba DUPLICATAS
-            pyautogui.click(x=782, y=537)
+            pyautogui.click(x=721, y=558)
             time.sleep(3)
 
             # Navega até o campo NATUREZA (2 tabs)
@@ -345,7 +345,7 @@ def preencher_campos(linha, index):
             time.sleep(3)
 
             # Clica na aba Informações DANFE
-            pyautogui.click(x=1294, y=538)
+            pyautogui.click(x=1218, y=555)
             time.sleep(3)
 
             # Navega até o campo Chave NFE
@@ -360,7 +360,7 @@ def preencher_campos(linha, index):
             time.sleep(3)
 
             # Clicar no campo Tipo CT-e
-            pyautogui.click(x=1057, y=662)
+            pyautogui.click(x=1044, y=667)
             time.sleep(3)
             pyautogui.press('n')
             time.sleep(3)
@@ -373,12 +373,12 @@ def preencher_campos(linha, index):
     # Sair do loop salvar
     print("→ Clicando em salvar.")
     time.sleep(5)
-    pyautogui.click(x=1306, y=158)
+    pyautogui.click(x=1309, y=146)
     time.sleep(20)
 
     # Bug protheus, cancelar a tela que abre sozinha.
     print("Fechando a tela incluir que foi aberta sozinha.")
-    pyautogui.click(x=1213, y=161)
+    pyautogui.click(x=1227, y=152)
     time.sleep(15)
 
     # sair do loop cancelar
