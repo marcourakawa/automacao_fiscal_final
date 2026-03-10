@@ -1,27 +1,40 @@
+import os
 import pandas as pd
 import pyautogui
 import pyperclip
 import time
 import re
 from datetime import datetime
+import sys
+import tkinter as tk
+from tkinter import filedialog
 
 # ===== CONFIGURAÇÕES INICIAIS =====
-pyautogui.FAILSAFE = True # Mover mouse para parar o código (segurança)
-pyautogui.PAUSE = 0.3 # Pausa automática entre as acções
+pyautogui.FAILSAFE = True
+pyautogui.PAUSE = 0.3
 
-
-# ===== Ler a planilha =====
-arquivo_excel = r"G:\Prevencao-de-Perdas\zMarco\Python\cod_diego_final\planilha\planilha_uso_e_consumo.xlsx"
-
-# ===== LOG DE ERRO =====
+# ===== PASTA PARA LOG =====
+pasta_base = os.path.dirname(os.path.abspath(sys.argv[0]))
+pasta_log = os.path.join(pasta_base, "erro")
+os.makedirs(pasta_log, exist_ok=True)
 data_hora_execucao = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
-arquivo_log = rf"G:\Prevencao-de-Perdas\zMarco\Python\cod_diego_final\erro\linhas_erradas_{data_hora_execucao}.txt"
+arquivo_log = os.path.join(pasta_log, f"linhas_erradas_{data_hora_execucao}.txt")
 
+# ===== SELEÇÃO DA PLANILHA =====
+root = tk.Tk()
+root.withdraw()  # esconde a janela principal
+arquivo_excel = filedialog.askopenfilename(
+    title="Selecione a planilha",
+    filetypes=[("Excel files", "*.xlsx *.xls")]
+)
+
+if not arquivo_excel:
+    print("Nenhuma planilha selecionada. Saindo...")
+    exit(1)
+
+# ===== LENDO A PLANILHA =====
 try:
     df = pd.read_excel(arquivo_excel, dtype=str)
-except FileNotFoundError:
-    print(f"Erro: Arquivo '{arquivo_excel}' não encontrado.")
-    exit(1)
 except Exception as e:
     print(f"Erro ao ler a planilha: {e}")
     exit(1)
@@ -376,8 +389,8 @@ def preencher_campos(linha, index):
     print("\nPreenchimento da linha concluído.")
 
 # ===== Executar =====
-print("Automação pronta. Vai começar em 3 segundos...")
-time.sleep(3)
+print("Automação pronta. Vai começar em 10 segundos...")
+time.sleep(10)
 
 try:
     for index, linha in df.iterrows():
