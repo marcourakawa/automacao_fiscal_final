@@ -301,7 +301,7 @@ def preencher_campos(linha, index):
             
             for _ in range(22):
                 pyautogui.press("right")
-                time.sleep(0.2)
+                time.sleep(0.5)
 
             pyautogui.press("enter")
             time.sleep(1)
@@ -365,33 +365,32 @@ def preencher_campos(linha, index):
             pyautogui.press('n')
             time.sleep(2)
             pyautogui.press('enter')
-            time.sleep(2)
+            time.sleep(3)
             
     # Segurnaça para eivtar que o bot continue quando algo estiver errado.
     pyautogui.moveRel(0, 0)
 
     # TESTE CANCELAR
-    pyautogui.click(x=1215, y=161)
-    time.sleep(3)
+    #pyautogui.click(x=1215, y=161)
+    #time.sleep(3)
 
     # Sair do loop salvar
-    # print("→ Clicando em salvar.")
-    # time.sleep(5)
-    # pyautogui.click(x=1312, y=149)
-    # time.sleep(15)
+    print("→ Clicando em salvar.")
+    pyautogui.click(x=1307, y=158)
+    time.sleep(10)
     
     # Tratamento caso o campo seja "CTE"
     if chave_nfe:
         print("CHAVE_NFE preenchida (CTE). Aguardando janela...")
-        time.sleep(3)
+        time.sleep(10)
         print("Tentando fechar janela popup do CTE")
-        pyautogui.click(x=880, y=468)
+        pyautogui.click(x=900, y=474)
         print("Janela fechada x=880, y=468")
-        time.sleep(5)
+        time.sleep(3)
 
     # Bug protheus, cancelar a tela que abre sozinha.
     print("Fechando a tela incluir que foi aberta sozinha.")
-    pyautogui.click(x=1232, y=150)
+    pyautogui.click(x=1215, y=161)
     time.sleep(5)
 
     print("\nPreenchimento da linha concluído.")

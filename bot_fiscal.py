@@ -299,7 +299,7 @@ def preencher_campos(linha, index):
             
             for _ in range(22):
                 pyautogui.press("right")
-                time.sleep(0.2)
+                time.sleep(0.5)
 
             pyautogui.press("enter")
             time.sleep(1)
@@ -374,17 +374,16 @@ def preencher_campos(linha, index):
 
     # Sair do loop salvar
     print("→ Clicando em salvar.")
-    time.sleep(5)
     pyautogui.click(x=1312, y=149)
     time.sleep(10)
     
     if chave_nfe:
         print("CHAVE_NFE preenchida (CTE). Aguardando janela...")
-        time.sleep(3)
+        time.sleep(10)
         print("Tentando fechar janela popup do CTE")
         pyautogui.click(x=880, y=468)
         print("Janela fechada")
-        time.sleep(5)
+        time.sleep(3)
 
     # Bug protheus, cancelar a tela que abre sozinha.
     print("Fechando a tela incluir que foi aberta sozinha.")
@@ -401,7 +400,7 @@ try:
     for index, linha in df.iterrows():
         print(f"\n=== Processando linha {index + 1}/{len(df)} ===")
         preencher_campos(linha, index)
-        time.sleep(5)  # pequeno respiro entre notas
+        time.sleep(3)  # pequeno respiro entre notas
 
 except KeyboardInterrupt:
     print("\nAutomação interrompida pelo usuário (Ctrl+C)")
