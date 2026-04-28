@@ -158,24 +158,26 @@ def preencher_campos(linha, index):
 
 
     pyautogui.press("i")
-    time.sleep(4)
+    time.sleep(2)
 
-    # Clica na aba DUPLICATAS
+    # Clica na aba para inserir filial
     pyautogui.click(x=803, y=268)
-    time.sleep(3)
+    time.sleep(0.5)
+    pyautogui.click(x=803, y=268)
+    time.sleep(0.5)
 
-    # Copiar e colcar a filial
+    # Copiar e colocar a filial
     pyperclip.copy(filial)
     pyautogui.hotkey("ctrl", "v")
-    time.sleep(1.5)
+    time.sleep(1)
 
     # Clicar em procurar
     pyautogui.click(x=976, y=261)
-    time.sleep(1.5)
+    time.sleep(1)
 
     # Clicar em ok
     pyautogui.click(x=344, y=580)
-    time.sleep(5)
+    time.sleep(4)
 
 
     # =====================================================
@@ -208,7 +210,7 @@ def preencher_campos(linha, index):
             # Cola o valor da NOTA_FISCAL
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "SERIE":
 
@@ -225,7 +227,7 @@ def preencher_campos(linha, index):
         elif campo == "DT_EMISSAO":
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "COD_CLIEFOR":
             pyperclip.copy(valor)
@@ -237,47 +239,47 @@ def preencher_campos(linha, index):
             time.sleep(1)
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "COD_PRODUTO":
             # Cola o valor do campo COD_PRODUTO
             pyautogui.click(x=28, y=305)
-            time.sleep(2)
+            time.sleep(1)
             pyautogui.press("right")
-            time.sleep(0.5)
+            time.sleep(0.8)
             pyautogui.press("enter")
-            time.sleep(0.5)
+            time.sleep(0.8)
             pyautogui.press("backspace")
-            time.sleep(0.5)
+            time.sleep(0.8)
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(6)
+            time.sleep(5)
 
         elif campo == "QTDE":
             # Cola o valor do campo QTDE
             pyautogui.press("right")
-            time.sleep(0.8)
+            time.sleep(0.5)
             pyautogui.press("enter")
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(3)
+            time.sleep(1)
             pyautogui.press("enter")
-            time.sleep(3)
+            time.sleep(1)
 
         elif campo == "VAL_UNIT":
             for _ in range(3):
                 pyautogui.press("right")
-                time.sleep(2)
+                time.sleep(1)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
 
         elif campo == "TES":
@@ -287,57 +289,56 @@ def preencher_campos(linha, index):
                 time.sleep(0.5)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(3)
+            time.sleep(2)
 
         elif campo == "SOLIC_PAGTO":
             
             for _ in range(22):
                 pyautogui.press("right")
-                time.sleep(0.5)
+                time.sleep(0.2)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "NATUREZA":
             print("→ Abrindo aba DUPLICATAS para preencher NATUREZA")
 
             # Clica na aba DUPLICATAS
             pyautogui.click(x=711, y=554)
-            time.sleep(2)
+            time.sleep(1)
 
             # Navega até o campo NATUREZA (2 tabs)
             for _ in range(2):
                 pyautogui.press("tab")
-                time.sleep(2)
+                time.sleep(1)
 
             # Digita D20
             pyperclip.copy("D20")
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
             pyautogui.press("tab")
-            time.sleep(2)
+            time.sleep(1)
 
             # Digita o valor
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "CHAVE_NFE":
             print("→ Abrindo aba INFORMAÇÕES DANFE")
-            time.sleep(2)
+            time.sleep(1)
 
             # Clica na aba Informações DANFE
             pyautogui.click(x=1196, y=557)
@@ -352,35 +353,43 @@ def preencher_campos(linha, index):
 
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(4)
+            time.sleep(3)
             pyautogui.press("enter")
             time.sleep(3)
 
             # Clicar no campo Tipo CT-e
             pyautogui.click(x=1043, y=666)
-            time.sleep(3)
+            time.sleep(2)
             pyautogui.press('n')
-            time.sleep(3)
+            time.sleep(2)
             pyautogui.press('enter')
-            time.sleep(3)
+            time.sleep(2)
             
     # Segurnaça para eivtar que o bot continue quando algo estiver errado.
     pyautogui.moveRel(0, 0)
 
     # TESTE CANCELAR
-    pyautogui.click(x=1232, y=150)
-    time.sleep(10)
+    # pyautogui.click(x=1232, y=150)
+    # time.sleep(10)
 
     # Sair do loop salvar
-    #print("→ Clicando em salvar.")
-    #time.sleep(5)
-    #pyautogui.click(x=1312, y=149)
-    #time.sleep(15)
+    print("→ Clicando em salvar.")
+    time.sleep(5)
+    pyautogui.click(x=1312, y=149)
+    time.sleep(10)
+    
+    if chave_nfe:
+        print("CHAVE_NFE preenchida (CTE). Aguardando janela...")
+        time.sleep(3)
+        print("Tentando fechar janela popup do CTE")
+        pyautogui.click(x=880, y=468)
+        print("Janela fechada")
+        time.sleep(5)
 
     # Bug protheus, cancelar a tela que abre sozinha.
-    #print("Fechando a tela incluir que foi aberta sozinha.")
-    #pyautogui.click(x=1232, y=150)
-    #time.sleep(10)
+    print("Fechando a tela incluir que foi aberta sozinha.")
+    pyautogui.click(x=1232, y=150)
+    time.sleep(5)
 
     print("\nPreenchimento da linha concluído.")
 

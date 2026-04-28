@@ -86,7 +86,7 @@ if 'COD_PRODUTO' in df.columns:
     df['COD_PRODUTO'] = df['COD_PRODUTO'].str.zfill(15)
 
 if 'TES' in df.columns:
-    df['TES'] = df['TES'].astype(str).str.zfill(3)
+    df['TES'] = df['TES'].str.zfill(3)
 
 # ===== Pega a primeira linha (teste) =====
 if len(df) == 0:
@@ -135,7 +135,7 @@ def preencher_campos(linha, index):
 
         return
 
-    # 🔒 TRAVA DE SEGURANÇA — padrão 00 0000
+    # TRAVA DE SEGURANÇA — padrão 00 0000
     if not re.match(r"^\d{2} \d{4}$", filial):
         print(
             f"ERRO: FILIAL fora do padrão ('{filial}'). "
@@ -158,28 +158,28 @@ def preencher_campos(linha, index):
 
 
     pyautogui.press("i")
-    time.sleep(4)
+    time.sleep(2)
 
     # Clica para inseir filial
     pyautogui.click(x=811, y=255)
-    time.sleep(1)
+    time.sleep(0.8)
     pyautogui.click(x=811, y=255)
-    time.sleep(1)
+    time.sleep(0.8)
 
     # Copiar e colcar a filial
     pyperclip.copy(filial)
     pyautogui.hotkey("ctrl", "v")
-    time.sleep(1.5)
+    time.sleep(1)
 
     # Clicar em procurar
     pyautogui.click(x=998, y=247)
     pyautogui.click(x=998, y=247)
-    time.sleep(1.5)
+    time.sleep(1)
 
     # Clicar em ok
     pyautogui.click(x=305, y=597)
     pyautogui.click(x=305, y=597)
-    time.sleep(5)
+    time.sleep(4)
 
 
     # =====================================================
@@ -192,7 +192,7 @@ def preencher_campos(linha, index):
         # Segurnaça para eivtar que o bot continue quando algo estiver errado.
         pyautogui.moveRel(0, 0)
 
-        # 🔒 REGRA: só processa CHAVE_NFE se tiver valor
+        # REGRA: só processa CHAVE_NFE se tiver valor
         if campo == "CHAVE_NFE" and not chave_nfe:
             print("→ CHAVE_NFE vazia, campo ignorado")
             continue
@@ -212,7 +212,7 @@ def preencher_campos(linha, index):
             # Cola o valor da NOTA_FISCAL
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "SERIE":
 
@@ -229,7 +229,7 @@ def preencher_campos(linha, index):
         elif campo == "DT_EMISSAO":
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "COD_CLIEFOR":
             pyperclip.copy(valor)
@@ -241,47 +241,47 @@ def preencher_campos(linha, index):
             time.sleep(1)
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "COD_PRODUTO":
             # Cola o valor do campo COD_PRODUTO
             pyautogui.click(x=29, y=336)
-            time.sleep(2)
+            time.sleep(1)
             pyautogui.press("right")
-            time.sleep(0.5)
+            time.sleep(0.8)
             pyautogui.press("enter")
-            time.sleep(0.5)
+            time.sleep(0.8)
             pyautogui.press("backspace")
-            time.sleep(0.5)
+            time.sleep(0.8)
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(6)
+            time.sleep(5)
 
         elif campo == "QTDE":
             # Cola o valor do campo QTDE
             pyautogui.press("right")
-            time.sleep(0.8)
+            time.sleep(0.5)
             pyautogui.press("enter")
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(3)
+            time.sleep(1)
             pyautogui.press("enter")
-            time.sleep(3)
+            time.sleep(1)
 
         elif campo == "VAL_UNIT":
             for _ in range(3):
                 pyautogui.press("right")
-                time.sleep(2)
+                time.sleep(1)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
 
         elif campo == "TES":
@@ -291,57 +291,56 @@ def preencher_campos(linha, index):
                 time.sleep(0.5)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(3)
+            time.sleep(2)
 
         elif campo == "SOLIC_PAGTO":
             
             for _ in range(22):
                 pyautogui.press("right")
-                time.sleep(0.5)
+                time.sleep(0.2)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "NATUREZA":
             print("→ Abrindo aba DUPLICATAS para preencher NATUREZA")
 
             # Clica na aba DUPLICATAS
             pyautogui.click(x=790, y=538)
-            time.sleep(2)
+            time.sleep(1)
 
             # Navega até o campo NATUREZA (2 tabs)
             for _ in range(2):
                 pyautogui.press("tab")
-                time.sleep(2)
+                time.sleep(1)
 
             # Digita D20
             pyperclip.copy("D20")
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
             pyautogui.press("tab")
-            time.sleep(2)
+            time.sleep(1)
 
             # Digita o valor
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2)
+            time.sleep(1)
 
             pyautogui.press("enter")
-            time.sleep(2)
+            time.sleep(1)
 
         elif campo == "CHAVE_NFE":
             print("→ Abrindo aba INFORMAÇÕES DANFE")
-            time.sleep(2)
+            time.sleep(1)
 
             # Clica na aba Informações DANFE
             pyautogui.click(x=1294, y=540)
@@ -356,35 +355,44 @@ def preencher_campos(linha, index):
 
             pyperclip.copy(valor)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(4)
+            time.sleep(3)
             pyautogui.press("enter")
             time.sleep(3)
 
             # Clicar no campo Tipo CT-e
             pyautogui.click(x=1057, y=659)
-            time.sleep(3)
+            time.sleep(2)
             pyautogui.press('n')
-            time.sleep(3)
+            time.sleep(2)
             pyautogui.press('enter')
-            time.sleep(3)
+            time.sleep(2)
             
     # Segurnaça para eivtar que o bot continue quando algo estiver errado.
     pyautogui.moveRel(0, 0)
 
     # TESTE CANCELAR
     pyautogui.click(x=1215, y=161)
-    time.sleep(5)
+    time.sleep(3)
 
     # Sair do loop salvar
-    #print("→ Clicando em salvar.")
-    #time.sleep(5)
-    #pyautogui.click(x=1312, y=149)
-    #time.sleep(15)
+    # print("→ Clicando em salvar.")
+    # time.sleep(5)
+    # pyautogui.click(x=1312, y=149)
+    # time.sleep(15)
+    
+    # Tratamento caso o campo seja "CTE"
+    if chave_nfe:
+        print("CHAVE_NFE preenchida (CTE). Aguardando janela...")
+        time.sleep(3)
+        print("Tentando fechar janela popup do CTE")
+        pyautogui.click(x=880, y=468)
+        print("Janela fechada x=880, y=468")
+        time.sleep(5)
 
     # Bug protheus, cancelar a tela que abre sozinha.
-    #print("Fechando a tela incluir que foi aberta sozinha.")
-    #pyautogui.click(x=1232, y=150)
-    #time.sleep(5)
+    print("Fechando a tela incluir que foi aberta sozinha.")
+    pyautogui.click(x=1232, y=150)
+    time.sleep(5)
 
     print("\nPreenchimento da linha concluído.")
 
